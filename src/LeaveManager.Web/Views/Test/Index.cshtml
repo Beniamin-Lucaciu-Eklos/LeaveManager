@@ -1,0 +1,10 @@
+﻿@model TestViewModel
+
+@{
+    ViewData["Title"] = "Test View";
+}
+<h1>Hello from test @Model.Name</h1>
+@if (Model.DateOfBirth is not null)
+{
+    <h2>you're dob is: @Model.DateOfBirth</h2>
+}
