@@ -1,0 +1,7 @@
+dotnet aspnet-codegenerator --project .\src\LeaveManager.Web\LeaveManager.Web.csproj 
+                        controller -name LeaveTypesController 
+                        -m LeaveType 
+                        -dc ApplicationDbContext 
+                        --relativeFolderPath Controllers 
+                        --useDefaultLayout 
+                        --referenceScriptLibraries -async -actions

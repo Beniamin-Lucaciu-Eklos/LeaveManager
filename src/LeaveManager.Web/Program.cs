@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using LeaveManager.Web.Data;
+using System.Reflection;
+using LeaveManager.Web.Services;
 
 namespace LeaveManager.Web;
 
@@ -15,6 +17,10 @@ public class Program
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(connectionString));
         builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+        builder.Services.AddScoped<ILeaveTypeService, LeaveTypeService>();
+                
+        builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
         builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             .AddEntityFrameworkStores<ApplicationDbContext>();
